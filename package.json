@@ -1,0 +1,23 @@
+{
+  "name": "js-demo1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "gh-pages": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PsyhoBelka/SS-ITA-JS_Demo1.git"
+  },
+  "author": "Oleksii.Rozhkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PsyhoBelka/SS-ITA-JS_Demo1/issues"
+  },
+  "homepage": "https://github.com/PsyhoBelka/SS-ITA-JS_Demo1#readme"
+}
