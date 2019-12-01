@@ -1,38 +1,30 @@
-export function polindrom(a) {
-    a = a.toString();
+export function polindrom(input) {
+    input = input.toString();
     let regP1 = '(\\w)';
     let i = 1;
     let k = 2;
-    let b = getRegexP1(i, regP1);
-    let d = [];
-    getRegexP2(k, d);
-    let c = [...b, ...d].join('');
-    let pal = [];
-    while (i < a.length) {
-        b = getRegexP1(i, regP1);
-        d = [];
-        getRegexP2(k, d);
-        c = [...b, ...d].join('');
-
-        let match = a.toString().match(new RegExp(c, 'g'));
+    let palindromsArr = [];
+    while (i < input.length) {
+        let match = input
+            .toString()
+            .match(new RegExp([...getRegexP1(i, regP1), ...getRegexP2(k, [])].join(''), 'g'));
         k > i ? i++ : k++;
         if (match === null) {
             continue;
         }
-        pal.push(match)
+        palindromsArr.push(match)
     }
 
-    return pal.length > 0 ? pal.flat() : 0;
+    return palindromsArr.length > 0 ? palindromsArr.flat() : 0;
 }
 
 function getRegexP1(i, regP1) {
     return Array(i).fill(regP1);
 }
 
-function getRegexP2(k, d) {
-    for (let i = 1; i < k; i++) {
-        d.unshift(`\\${i}`)
-    }
+function getRegexP2(k) {
+    return Array(k-1).fill(0).map((a,b)=>{
+        return `\\${b+1}`}).reverse();
 }
 
 // let a = '13493234567765431';
