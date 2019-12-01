@@ -1,11 +1,13 @@
-import validator from './Validator';
+import {Validator, help} from './Validator.js';
 
-export function chessBoard(height, width, sym) {
+export function chessBoard(width, height, sym) {
+    const validator = new Validator();
+
     if (!validator.isNumber(height)) {
-        return help(`${height} in not a number!`)
+        return help(`${height} is not a number!`)
     }
     if (!validator.isNumber(width)) {
-        return help(`${width} in not a number!`)
+        return help(`${width} is not a number!`)
     }
     if (!validator.isString(sym)) {
         return help(`'${sym}' is not a string`);
@@ -27,12 +29,3 @@ export function chessBoard(height, width, sym) {
         .replace(/,/g, '')
         .trim();
 }
-
-function help(reason) {
-    return {
-        status: 'failed',
-        reason: reason,
-    };
-}
-
-// console.log(chessBoard(4, 4, '*'));
