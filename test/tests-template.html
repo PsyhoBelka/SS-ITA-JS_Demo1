@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <!-- add mocha css, to show results -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+        <!-- add mocha framework code -->
+        <script src="libs/mocha_6.2.1.js"></script>
+        <script>
+            mocha.setup('bdd'); // minimal setup
+        </script>
+        <!-- add chai -->
+        <script src="libs/chai_4.2.0.js"></script>
+        <script>
+            // chai has a lot of stuff, let's make assert global
+            let assert = chai.assert;
+        </script>
+    </head>
+    <body>
+        <!-- the script with tests (describe, it...) -->
+        <script src="../src/task-1-chess.js"></script>
+
+        <!-- the element with id="mocha" will contain test results -->
+        <div id="mocha"></div>
+
+        <!-- run tests! -->
+        <script>
+            mocha.run();
+        </script>
+    </body>
+</html>
