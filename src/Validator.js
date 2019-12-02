@@ -17,6 +17,10 @@ export class Validator {
         }
         return (a + b > c) || (c + b > a) || (a + c > b);
     };
+
+    isInteger(num){
+        return Number.isInteger(num);
+    }
 }
 
 export function help(reason) {
