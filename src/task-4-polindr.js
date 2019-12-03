@@ -1,4 +1,10 @@
-export function polindrom(input) {
+export function calcPoli(input) {
+    let poli=polindrom(input).flat();
+    let poliRev=polindrom(Array.from(input).reverse().join('')).flat();
+    [...poli,...poliRev]
+}
+
+function polindrom(input) {
     input = input.toString();
     let regP1 = '(\\w)';
     let i = 1;
@@ -14,7 +20,6 @@ export function polindrom(input) {
         }
         palindromsArr.push(match)
     }
-
     return palindromsArr.length > 0 ? palindromsArr.flat() : 0;
 }
 
@@ -23,8 +28,9 @@ function getRegexP1(i, regP1) {
 }
 
 function getRegexP2(k) {
-    return Array(k-1).fill(0).map((a,b)=>{
-        return `\\${b+1}`}).reverse();
+    return Array(k - 1).fill(0).map((a, b) => {
+        return `\\${b + 1}`
+    }).reverse();
 }
 
 // let a = '13493234567765431';

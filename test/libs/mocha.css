@@ -218,7 +218,7 @@ body {
   height: 15px;
   line-height: 15px;
   text-align: center;
-  background: #eee;
+  background: #100eee;
   font-size: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -228,7 +228,7 @@ body {
   -o-transition:opacity 200ms;
   transition: opacity 200ms;
   opacity: 0.3;
-  color: #888;
+  color: #880a0b;
 }
 
 #mocha .test:hover a.replay {
