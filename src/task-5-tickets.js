@@ -1,7 +1,7 @@
-import {Validator, help} from "./Validator.js";
+import {help, Validator} from "./Validator.js";
 
 
-function tickets({min, max}) {
+export function tickets({min, max}) {
     const validator = new Validator();
     if (!validator.isInteger(min) || !validator.isInteger(max) || validator.isString(min) || validator.isString(max)) {
         return help('Tickets must be integer!')

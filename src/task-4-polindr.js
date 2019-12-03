@@ -1,7 +1,14 @@
+import {help, Validator} from "../src/Validator.js";
+
 export function calcPoli(input) {
+    const validator= new Validator();
+    if (!validator.isNumber(input)) {
+        return help('Input must be a number')
+    }
+
     let poli=polindrom(input).flat();
     let poliRev=polindrom(Array.from(input).reverse().join('')).flat();
-    [...poli,...poliRev]
+    return [...poli,...poliRev]
 }
 
 function polindrom(input) {

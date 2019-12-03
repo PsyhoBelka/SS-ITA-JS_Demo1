@@ -1,6 +1,6 @@
-import {Validator,help} from "./Validator.js";
+import {help} from "./Validator.js";
 
-function fibo(a) {
+export function fibo(a) {
     let fields = Object.keys(a);
     let i;
     console.log(fields);
@@ -44,5 +44,5 @@ function bine(n) {
 }
 
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765
-console.log(fibo({min: 13, max: 200}));
-console.log(fibo({length: 5}));
+// console.log(fibo({min: 13, max: 200}));
+// console.log(fibo({length: 5}));

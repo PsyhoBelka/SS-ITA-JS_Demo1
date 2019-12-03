@@ -1,6 +1,6 @@
-import {Validator, help} from "./Validator.js";
+import {help, Validator} from "./Validator.js";
 
-export function printTriag(triagArr) {
+export function printTriang(triagArr) {
     const validator = new Validator();
     if (triagArr.length === 0) {
         return -1;
