@@ -177,7 +177,7 @@ body {
 }
 
 /**
- * (1): approximate for browsers not supporting calc
+ * (1): approximate for browsers not supporting envelop
  * (2): 42 = 2*15 + 2*10 + 2*1 (padding + margin + border)
  *      ^^ seriously
  */

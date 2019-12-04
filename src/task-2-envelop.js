@@ -1,4 +1,4 @@
-export function calc(a, b, c, d) {
+export function envelop(a, b, c, d) {
     if (fits(a, b, c, d) !== 0) {
         return 1; //ab in cd
     }
@@ -29,4 +29,4 @@ const cos = (x) => {
 
 
 // console.log(fits(2, 2, 3, 4));
-// console.log(calc(4, 2, 3, 4));
+// console.log(envelop(4, 2, 3, 4));

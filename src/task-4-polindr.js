@@ -7,8 +7,10 @@ export function calcPoli(input) {
     }
 
     let poli=polindrom(input).flat();
-    let poliRev=polindrom(Array.from(input).reverse().join('')).flat();
-    return [...poli,...poliRev]
+    let poliRev=polindrom(Array.from(input.toString()).reverse().join('')).flat();
+    let res=[];
+    [...poli,...poliRev].forEach((x,i,arr)=>{!res.includes(x)?res.push(x):0})
+    return res;
 }
 
 function polindrom(input) {
