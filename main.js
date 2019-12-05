@@ -15,26 +15,71 @@ window.tickets = tickets;
 window.posled = posled;
 window.fibo = fibo;
 
-function a1() {
-    console.log('form output');
-    let btn=document.getElementById('t1b').innerText;
-    switch (btn) {
-        case 'show':{btn='hide';break;}
-        case 'hide':{btn='show';break;}
+//---Init controls---
+window.showTaskControls = showTaskControls;
+window.clearOutput = clearOutput;
+
+window.applyT1data = applyT1data;
+window.applyT2data = applyT2data;
+window.applyT3data = applyT3data;
+window.applyT4data = applyT4data;
+//-------------------
+
+const outputBox = document.getElementById('output-box');
+
+function showTaskControls(ctr) {
+    const ctrId = `${ctr.id}-box`;
+    console.log(`show ${ctrId}`);
+    let status = document.getElementById(ctrId).hidden;
+    switch (status) {
+        case true: {
+            document.getElementById(ctrId).hidden = false;
+            break;
+        }
+        case false: {
+            document.getElementById(ctrId).hidden = true;
+            break;
+        }
     }
-    document.getElementById('t1b').innerText=btn;
-    document.getElementById('t1p').hidden = 'true';
 }
 
-// document.getElementById('t1-form').onclick=a1;
-document.getElementById('t1b').onclick = a1;
-// console.log(chessBoard(3, 4, '*'));
-// console.log(envelop(1, 2, 3, 4));
-// console.log(printTriang([
-//     {name: 'tr1', a: 2.2, b: 2.4, c: 3},
-//     {name: 'tr2', a: 6.4, b: 5, c: 6},
-//     {name: 'tr3', a: 5.34, b: 2, c: 6},
-//     {name: 'tr4', a: 12, b: 4, c: 6},
-//     {name: 'tr5', a: 10, b: 5, c: 8},
-//     {name: 'tr6', a: 10, b: 1, c: '23'}
-// ]));
+function clearOutput() {
+    document.getElementById('output-box').value = '';
+}
+
+function applyT1data() {
+    const width = document.getElementById('t1-width').value;
+    const height = document.getElementById('t1-height').value;
+    const symbol = document.getElementById('t1-symbol').value;
+    console.log(width, height, symbol);
+    outputBox.value = chessBoard(Number(width), Number(height), symbol);
+}
+
+function applyT2data() {
+    const a = document.getElementById('t2-a').value;
+    const b = document.getElementById('t2-b').value;
+    const c = document.getElementById('t2-c').value;
+    const d = document.getElementById('t2-d').value;
+    console.log(a, b, c, d);
+    outputBox.value = JSON.stringify(envelop(Number(a), Number(b), Number(c), Number(d)));
+}
+
+function applyT3data() {
+    const trNum = 3;
+    let data = [];
+    let a, b, c;
+    let name;
+    for (let i = 1; i <= trNum; i++) {
+        name = document.getElementById(`t3-tr${i}-name`).value;
+        [a, b, c] = document.getElementById(`t3-tr${i}-sides`).value.split(',');
+        data.push({name: name, a: Number(a), b: Number(b), c: Number(c)});
+    }
+    console.log(data);
+    outputBox.value = JSON.stringify(printTriang(data));
+}
+
+function applyT4data() {
+    const pal = document.getElementById('t4-palindrome').value;
+    console.log(pal);
+    outputBox.value = JSON.stringify(calcPoli(Number(pal)));
+}

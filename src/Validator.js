@@ -15,7 +15,7 @@ export class Validator {
         if (!this.isNumber(a) || !this.isNumber(b) || !this.isNumber(c)) {
             return false;
         }
-        return (a + b > c) || (c + b > a) || (a + c > b);
+        return (a + b > c) | (c + b > a) | (a + c > b);
     };
 
     isInteger(num) {

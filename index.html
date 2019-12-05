@@ -4,25 +4,198 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <style type="text/css">
+            .controlBox {
+                height: fit-content;
+            }
+
+            .controlText {
+                float: left;
+                margin: 0;
+                width: 110px;
+                padding-right: 5px;
+            }
+
+            .controlLine {
+                margin: 2px;
+            }
+
+            .controlLine input {
+                margin-left: 10px;
+            }
+
+            .output {
+                width: 400px;
+                height: 200px;
+
+            }
+
+            .head {
+                margin: auto;
+                width: 100%;
+            }
+
+            .output-box {
+                width: 400px;
+                float: left;
+                margin: 20px;
+            }
+
+            .content {
+                width: 800px;
+                float: left;
+                margin: 20px;
+            }
         </style>
+        <script src="./main.js" type="module"></script>
     </head>
     <body>
-        <script>console.log('before load')</script>
-        <script>console.log('after load')</script>
-        <h3>Task 1. Print chessboard (controls | test)</h3>
-        <h3>Task 2. Print chessboard (controls | test)</h3>
-        <h3>Task 3. Print chessboard (controls | test)</h3>
-        <h3>Task 4. Print chessboard (controls | test)</h3>
-        <h3>Task 5. Print chessboard (controls | test)</h3>
-        <h3>Task 6. Print chessboard (controls | test)</h3>
-        <h3>Task 7. Print chessboard (controls | test)</h3>
-        <form class="f1" id="t1-form" action="index.html">
-        </form>
-        <button id="t1b">test</button>
-        <p id="t1p">1111111</p>
+        <h3 class="head">
+            DEMO-1
+        </h3>
+        <div class="content">
+            <div>
+                <h3>Task 1. Print chessboard (
+                    <button id="t1-control" onclick="showTaskControls(this);">controls</button>
+                    |
+                    <button disabled>tests</button>
+                    )
+                </h3>
+                <div id="t1-control-box" class="controlBox" hidden>
+                    <div class="controlLine">
+                        <p class="controlText">Height:</p> <input id="t1-height" onclick="this.value=''"/>
+                    </div>
+                    <div style="float: unset"></div>
+                    <div class="controlLine">
+                        <p class="controlText">Width:</p> <input id="t1-width" onclick="this.value=''"/>
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Symbol:</p> <input id="t1-symbol" onclick="this.value=''"><br>
+                    </div>
+                    <div class="controlLine">
+                        <button id="t1-apply" onclick="applyT1data();">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Task 2. Fit envelops (
+                    <button id="t2-control" onclick="showTaskControls(this);">controls</button>
+                    |
+                    <button disabled>tests</button>
+                    )
+                </h3>
+                <div id="t2-control-box" class="controlBox" hidden>
+                    <div class="controlLine">
+                        <p class="controlText">Envelop1 side a:</p> <input id="t2-a" onclick="this.value=''"/>
+                    </div>
+                    <div style="float: unset"></div>
+                    <div class="controlLine">
+                        <p class="controlText">Envelop1 side a:</p> <input id="t2-b" onclick="this.value=''"/>
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Envelop2 side a:</p> <input id="t2-c" onclick="this.value=''"><br>
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Envelop2 side a:</p> <input id="t2-d" onclick="this.value=''"><br>
+                    </div>
+                    <div class="controlLine">
+                        <button id="t2-apply" onclick="applyT2data();">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Task 3. Compare triangles (
+                        <button id="t3-control" onclick="showTaskControls(this);">controls</button>
+                        |
+                        <button disabled>tests</button>
+                        )
+                    </h3>
+                </div>
+                <div id="t3-control-box" class="controlBox" hidden>
+                    <div class="controlLine">
+                        <p class="controlText">Triangle1:</p>
+                        <input id="t3-tr1-name" onclick="this.value=''">
+                        <input id="t3-tr1-sides" onclick="this.value=''"><br>
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Triangle2:</p>
+                        <input id="t3-tr2-name" onclick="this.value=''">
+                        <input id="t3-tr2-sides" onclick="this.value=''"><br>
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Triangle3:</p>
+                        <input id="t3-tr3-name" onclick="this.value=''">
+                        <input id="t3-tr3-sides" onclick="this.value=''"><br>
+                    </div>
+                    <div class="controlLine">
+                        <button id="t3-apply" onclick="applyT3data();">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Task 4. Palindrome (
+                        <button id="t4-control" onclick="showTaskControls(this);">controls</button>
+                        |
+                        <button disabled>tests</button>
+                        )
+                    </h3>
+                </div>
+                <div id="t4-control-box" class="controlBox" hidden>
+                    <div class="controlLine">
+                        <p class="controlText">Palindrome: </p>
+                        <input id="t4-palindrome" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <button id="t4-apply" onclick="applyT4data();">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Task 5. Print chessboard (
+                        <button id="t5-control">controls</button>
+                        |
+                        <button disabled>tests</button>
+                        )
+                    </h3>
+                </div>
+                <div id="t5-control-box" class="controlBox" hidden>
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Task 6. Print chessboard (
+                        <button id="t6-control">controls</button>
+                        |
+                        <button disabled>tests</button>
+                        )
+                    </h3>
+                </div>
+                <div id="t6-control-box" class="controlBox" hidden>
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Task 7. Print chessboard (
+                        <button id="t7-control">control</button>
+                        |
+                        <button disabled>tests</button>
+                        )
+                    </h3>
+                </div>
+                <div id="t7-control-box" class="controlBox" hidden>
+
+                </div>
+            </div>
 
 
-        <!--<a href = "./test/test1.html">test1.html</a>-->
-        <script src="./main.js" type="module"></script>
+        </div>
+        <div class="output-box">
+            <textarea id="output-box" class="output"></textarea><br>
+            <button id="clearOutput" onclick="clearOutput()">Clear</button>
+        </div>
     </body>
 </html>
