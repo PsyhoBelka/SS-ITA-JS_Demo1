@@ -3,50 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <style type="text/css">
-            .controlBox {
-                height: fit-content;
-            }
-
-            .controlText {
-                float: left;
-                margin: 0;
-                width: 110px;
-                padding-right: 5px;
-            }
-
-            .controlLine {
-                margin: 2px;
-            }
-
-            .controlLine input {
-                margin-left: 10px;
-            }
-
-            .output {
-                width: 400px;
-                height: 200px;
-
-            }
-
-            .head {
-                margin: auto;
-                width: 100%;
-            }
-
-            .output-box {
-                width: 400px;
-                float: left;
-                margin: 20px;
-            }
-
-            .content {
-                width: 800px;
-                float: left;
-                margin: 20px;
-            }
-        </style>
         <script src="./main.js" type="module"></script>
+        <link rel="stylesheet" href="./styles/index.css">
     </head>
     <body>
         <h3 class="head">
@@ -54,17 +12,22 @@
         </h3>
         <div class="content">
             <div>
-                <h3>Task 1. Print chessboard (
-                    <button id="t1-control" onclick="showTaskControls(this);">controls</button>
-                    |
-                    <button disabled>tests</button>
-                    )
-                </h3>
-                <div id="t1-control-box" class="controlBox" hidden>
+                <div>
+                    <h3>Task 1. Print chessboard (
+                        <button id="t1-control" onclick="showTaskControls(this);">controls</button>
+                        |
+                        <button disabled>tests</button>
+                        )
+                    </h3>
+                    <p>
+                        Вывести шахматную доску с заданными размерами высоты и ширины.<br>
+                        <b>Входные параметры:</b> длина, ширина, символ для отображения.<br>
+                        <b>Выход:</b> строка с представлением шахматной доски</p>
+                </div>
+                <div id="t1-control-box" class="controlBox">
                     <div class="controlLine">
                         <p class="controlText">Height:</p> <input id="t1-height" onclick="this.value=''"/>
                     </div>
-                    <div style="float: unset"></div>
                     <div class="controlLine">
                         <p class="controlText">Width:</p> <input id="t1-width" onclick="this.value=''"/>
                     </div>
@@ -76,6 +39,7 @@
                     </div>
                 </div>
             </div>
+            <div style="float: unset"></div>
             <div>
                 <h3>Task 2. Fit envelops (
                     <button id="t2-control" onclick="showTaskControls(this);">controls</button>
@@ -83,19 +47,26 @@
                     <button disabled>tests</button>
                     )
                 </h3>
-                <div id="t2-control-box" class="controlBox" hidden>
+                <p>
+                    Есть два конверта со сторонами (a,b) и (c,d).<br>
+                    Требуется определить, можно ли один конверт вложить в другой. <br>
+                    Программа должна обрабатывать ввод чисел с плавающей точкой.<br>
+                    <b>Входные параметры:</b> объекты конверт1 и конверт2.<br>
+                    <b>Выход:</b> 1 - если вложение возможно, 0 – если вложение невозможно.
+                </p>
+                <div id="t2-control-box" class="controlBox">
                     <div class="controlLine">
                         <p class="controlText">Envelop1 side a:</p> <input id="t2-a" onclick="this.value=''"/>
                     </div>
                     <div style="float: unset"></div>
                     <div class="controlLine">
-                        <p class="controlText">Envelop1 side a:</p> <input id="t2-b" onclick="this.value=''"/>
+                        <p class="controlText">Envelop1 side b:</p> <input id="t2-b" onclick="this.value=''"/>
                     </div>
                     <div class="controlLine">
-                        <p class="controlText">Envelop2 side a:</p> <input id="t2-c" onclick="this.value=''"><br>
+                        <p class="controlText">Envelop2 side c:</p> <input id="t2-c" onclick="this.value=''"><br>
                     </div>
                     <div class="controlLine">
-                        <p class="controlText">Envelop2 side a:</p> <input id="t2-d" onclick="this.value=''"><br>
+                        <p class="controlText">Envelop2 side d:</p> <input id="t2-d" onclick="this.value=''"><br>
                     </div>
                     <div class="controlLine">
                         <button id="t2-apply" onclick="applyT2data();">Apply</button>
@@ -110,8 +81,13 @@
                         <button disabled>tests</button>
                         )
                     </h3>
+                    <p>
+                        Вывести треугольники в порядке убывания их площади.<br>
+                        <b>Входные параметры:</b> массив объектов Tреугольник. <br>
+                        <b>Выход:</b> упорядоченный массив имён треугольников.
+                    </p>
                 </div>
-                <div id="t3-control-box" class="controlBox" hidden>
+                <div id="t3-control-box" class="controlBox">
                     <div class="controlLine">
                         <p class="controlText">Triangle1:</p>
                         <input id="t3-tr1-name" onclick="this.value=''">
@@ -140,8 +116,16 @@
                         <button disabled>tests</button>
                         )
                     </h3>
+                    <p>
+                        Проверить является ли число или его часть палиндромом. <br>
+                        Например, число 1234437 не является палиндромом, но является палиндромом его часть 3443. <br>
+                        Числа меньшие, чем 10 палиндромом не считать.<br>
+                        <b>Входные параметры:</b> число. <br>
+                        <b>Выход:</b> извлечённый из числа палиндром либо 0, если извлечение не удалось.
+
+                    </p>
                 </div>
-                <div id="t4-control-box" class="controlBox" hidden>
+                <div id="t4-control-box" class="controlBox">
                     <div class="controlLine">
                         <p class="controlText">Palindrome: </p>
                         <input id="t4-palindrome" onclick="this.value=''">
@@ -153,47 +137,113 @@
             </div>
             <div>
                 <div>
-                    <h3>Task 5. Print chessboard (
-                        <button id="t5-control">controls</button>
+                    <h3>Task 5. Tickets (
+                        <button id="t5-control" onclick="showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
+                    <p>
+                        Есть 2 способа подсчёта счастливых билетов (6 цифр):</p>
+                    <ul>
+                        <li>1. Простой — если на билете напечатано шестизначное число, и сумма первых трёх цифр равна
+                            сумме последних трёх, то этот билет считается счастливым.
+                        </li>
+                        <li>
+                            2. Сложный — если сумма чётных цифр билета равна сумме нечётных цифр билета, то билет
+                            считается счастливым.
+                        </li>
+                    </ul>
+                    <p>
+                        Определить программно какой вариант подсчёта счастливых билетов даст их большее количество на
+                        заданном интервале.<br>
+                        <b>Входные параметры:</b> объект context с полями min и max.<br>
+                        <b>Выход:</b> объект с информацией о победившем методе и количестве счастливых билетов для
+                        каждого
+                        способа подсчёта.
+                    </p>
                 </div>
-                <div id="t5-control-box" class="controlBox" hidden>
-
+                <div id="t5-control-box" class="controlBox">
+                    <div class="controlLine">
+                        <p class="controlText">Min ticket num: </p>
+                        <input id="t5-min" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Max ticket num: </p>
+                        <input id="t5-max" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <button id="t5-apply" onclick="applyT5data();">Apply</button>
+                    </div>
                 </div>
             </div>
             <div>
                 <div>
-                    <h3>Task 6. Print chessboard (
-                        <button id="t6-control">controls</button>
+                    <h3>Task 6. Generate sequence (
+                        <button id="t6-control" onclick="showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
-                </div>
-                <div id="t6-control-box" class="controlBox" hidden>
+                    <p>
+                        Вывести через запятую ряд длиной n, состоящий из натуральных чисел, <br>
+                        квадрат которых не меньше заданного m.
+                        <b>Входные параметры:</b> длина и значение минимального квадрата.<br>
+                        <b>Выход:</b> строка с рядом чисел
 
+                    </p>
+                </div>
+                <div id="t6-control-box" class="controlBox">
+                    <div class="controlLine">
+                        <p class="controlText">N: </p>
+                        <input id="t6-n" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">M: </p>
+                        <input id="t6-m" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <button id="t6-apply" onclick="applyT6data();">Apply</button>
+                    </div>
                 </div>
             </div>
             <div>
                 <div>
-                    <h3>Task 7. Print chessboard (
-                        <button id="t7-control">control</button>
+                    <h3>Task 7. Find fibonacci (
+                        <button id="t7-control" onclick="showTaskControls(this);">control</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
-                </div>
-                <div id="t7-control-box" class="controlBox" hidden>
+                    <p>
+                        Вывести все числа Фибоначчи, которые находятся в указанном диапазоне, либо имеют указанную
+                        длину.<br>
+                        <b>Входные параметры:</b> объект context с полями min и max, либо с полем length
+                        <b>Выход:</b> массив чисел
 
+                    </p>
+                </div>
+                <div id="t7-control-box" class="controlBox">
+                    <div class="controlLine">
+                        <p class="controlText">MIN: </p>
+                        <input id="t7-min" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">MAX: </p>
+                        <input id="t7-max" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <p class="controlText">Length: </p>
+                        <input id="t7-length" onclick="this.value=''">
+                    </div>
+                    <div class="controlLine">
+                        <button id="t7-apply" onclick="applyT7data();">Apply</button>
+                    </div>
                 </div>
             </div>
-
-
         </div>
         <div class="output-box">
+            <p><b>Output:</b></p>
             <textarea id="output-box" class="output"></textarea><br>
             <button id="clearOutput" onclick="clearOutput()">Clear</button>
         </div>

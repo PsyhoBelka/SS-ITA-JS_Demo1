@@ -2,7 +2,7 @@ import {describe} from "mocha";
 import {assert} from "chai";
 
 import {chessBoard} from "../src/task-1-chess.js";
-import {printTriang} from "../src/task-3-triang.js";
+import {triangles} from "../src/task-3-triang.js";
 import {polindrom} from "../src/task-4-polindr.js";
 
 
@@ -17,7 +17,7 @@ describe('test chessBoard printing', function () {
 
 describe('test triangles', function () {
     it('should return 2 triang in asc order', function () {
-        assert.equal(printTriang([{name: 'qq', a: 2.2, b: 2.4, c: 3}, {name: 'ww', a: 6.4, b: 5, c: 6}]), [{
+        assert.equal(triangles([{name: 'qq', a: 2.2, b: 2.4, c: 3}, {name: 'ww', a: 6.4, b: 5, c: 6}]), [{
             "a": 6.4,
             "b": 5,
             "c": 6,

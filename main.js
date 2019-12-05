@@ -1,18 +1,18 @@
 import {chessBoard} from "./src/task-1-chess.js";
 import {envelop} from "./src/task-2-envelop.js";
-import {printTriang} from "./src/task-3-triang.js";
+import {triangles} from "./src/task-3-triang.js";
 import {calcPoli} from "./src/task-4-polindr.js";
 import {tickets} from "./src/task-5-tickets.js";
-import {posled} from "./src/task-6-posled.js";
+import {sequence} from "./src/task-6-sequence.js";
 import {fibo} from "./src/task-7-fibo.js";
 
 
 window.chessBoard = chessBoard;
 window.envelop = envelop;
-window.printTriang = printTriang;
+window.printTriang = triangles;
 window.calcPoli = calcPoli;
 window.tickets = tickets;
-window.posled = posled;
+window.posled = sequence;
 window.fibo = fibo;
 
 //---Init controls---
@@ -23,24 +23,31 @@ window.applyT1data = applyT1data;
 window.applyT2data = applyT2data;
 window.applyT3data = applyT3data;
 window.applyT4data = applyT4data;
+window.applyT5data = applyT5data;
+window.applyT6data = applyT6data;
+window.applyT7data = applyT7data;
+
 //-------------------
 
 const outputBox = document.getElementById('output-box');
+const hiddenClass = 'unhidden';
 
 function showTaskControls(ctr) {
     const ctrId = `${ctr.id}-box`;
     console.log(`show ${ctrId}`);
-    let status = document.getElementById(ctrId).hidden;
+    // let status = document.getElementById(ctrId).hidden;
+    let status = document.getElementById(ctrId).classList.contains(hiddenClass);
     switch (status) {
-        case true: {
-            document.getElementById(ctrId).hidden = false;
+        case false: {
+            document.getElementById(ctrId).classList.add(hiddenClass);
             break;
         }
-        case false: {
-            document.getElementById(ctrId).hidden = true;
+        case true: {
+            document.getElementById(ctrId).classList.remove(hiddenClass);
             break;
         }
     }
+    clearOutput();
 }
 
 function clearOutput() {
@@ -75,11 +82,41 @@ function applyT3data() {
         data.push({name: name, a: Number(a), b: Number(b), c: Number(c)});
     }
     console.log(data);
-    outputBox.value = JSON.stringify(printTriang(data));
+    outputBox.value = JSON.stringify(triangles(data));
 }
 
 function applyT4data() {
     const pal = document.getElementById('t4-palindrome').value;
     console.log(pal);
     outputBox.value = JSON.stringify(calcPoli(Number(pal)));
+}
+
+function applyT5data() {
+    const min = document.getElementById('t5-min').value;
+    const max = document.getElementById('t5-max').value;
+    console.log([min, max]);
+    outputBox.value = JSON.stringify(tickets({min: Number(min), max: Number(max)}));
+}
+
+function applyT6data() {
+    const n = document.getElementById('t6-n').value;
+    const m = document.getElementById('t6-m').value;
+    console.log([n, m]);
+    outputBox.value = JSON.stringify(sequence(Number(m), Number(n)));
+}
+
+function applyT7data() {
+    const min = document.getElementById('t7-min').value;
+    const max = document.getElementById('t7-max').value;
+    const length = document.getElementById('t7-length').value;
+    console.log([min, max, length]);
+    let data = {};
+    if (min.length !== 0 && max.length !== 0) {
+        data.min = Number(min);
+        data.max = Number(max);
+    } else if (length.length !== 0) {
+        data.length = Number(length);
+    }
+    console.log(data);
+    outputBox.value = JSON.stringify(fibo(data));
 }

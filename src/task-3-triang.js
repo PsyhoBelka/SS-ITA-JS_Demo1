@@ -1,6 +1,6 @@
 import {help, Validator} from "./Validator.js";
 
-export function printTriang(triagArr) {
+export function triangles(triagArr) {
     const validator = new Validator();
     if (triagArr.length === 0) {
         return -1;
