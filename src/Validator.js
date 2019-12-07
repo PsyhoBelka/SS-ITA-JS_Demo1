@@ -18,10 +18,6 @@ export class Validator {
         return (a + b > c) || (c + b > a) || (a + c > b);
     };
 
-    isInteger(num) {
-        return Number.isInteger(num);
-    }
-
     isSingleCharacter(sym) {
         return this.isString(sym) && sym.length === 1;
     }

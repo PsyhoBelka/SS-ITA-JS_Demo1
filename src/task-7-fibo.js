@@ -3,7 +3,6 @@ import {help} from "./Validator.js";
 export function fibo(a) {
     let fields = Object.keys(a);
     let i;
-    console.log(fields);
     if (fields.includes('min') && fields.includes('max') && fields.includes('length')) {
         return help('bad input!');
     }
