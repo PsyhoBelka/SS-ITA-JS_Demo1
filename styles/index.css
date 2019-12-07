@@ -109,3 +109,7 @@ input:invalid {
 .input-line {
     height: 25px;
 }
+
+.toggleControls {
+    width: 100px;
+}
