@@ -17,7 +17,7 @@ window.fibo = fibo;
 
 //---Init controls---
 window.showTaskControls = showTaskControls;
-window.clearOutput = clearOutput;
+// window.clearOutput = clearOutput;
 
 window.applyT1data = applyT1data;
 window.applyT2data = applyT2data;
@@ -47,12 +47,17 @@ function showTaskControls(ctr) {
             break;
         }
     }
-    clearOutput();
+    // ctr.innerText.includes('hide') ? ctr.innerText = 'show controls' : 0;
+    ctr.innerText.includes('show') ? ctr.innerText = 'hide controls' : ctr.innerText = 'show controls';
 }
 
-function clearOutput() {
-    document.getElementById('output-box').value = '';
-}
+const clearOutput = () => {
+    outputBox.value = '';
+};
+const printResult = (result) => {
+    clearOutput;
+    outputBox.value = JSON.stringify(result);
+};
 
 function applyT1data() {
     const width = document.getElementById('t1-width').value;
@@ -122,8 +127,3 @@ function applyT7data() {
     console.log(data);
     outputBox.value = JSON.stringify(fibo(data));
 }
-
-const printResult = (result) => {
-    outputBox.value = '';
-    outputBox.value = JSON.stringify(result);
-};
