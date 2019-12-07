@@ -1,258 +1,281 @@
 <!DOCTYPE HTML >
-<html lang="en">
+<html lang = "en">
     <head>
         <!--<meta charset="windows-1251">-->
         <title>Title</title>
-        <script src="./main.js" type="module"></script>
-        <link rel="stylesheet" href="./styles/index.css">
+        <link rel = "stylesheet" href = "./styles/index.css">
+        <script src = "src/main.js" type = "module"></script>
+        <script src = "src/main-validators.js" type = "module"></script>
     </head>
     <body>
-        <h3 class="head">
-            DEMO-1 (<a href="./test/tests.html">test suit</a>)
+        <h3 class = "head">
+            DEMO-1 (<a href = "./test/tests.html">test suit</a>)
         </h3>
-        <div class="content">
+        <div class = "content">
             <div>
                 <div>
                     <h3>Task 1. Print chessboard (
-                        <button id="t1-control" onclick="showTaskControls(this);">controls</button>
+                        <button id = "t1-control" onclick = "showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
                     <p>
-                        Р’С‹РІРµСЃС‚Рё С€Р°С…РјР°С‚РЅСѓСЋ РґРѕСЃРєСѓ СЃ Р·Р°РґР°РЅРЅС‹РјРё СЂР°Р·РјРµСЂР°РјРё РІС‹СЃРѕС‚С‹ Рё С€РёСЂРёРЅС‹.<br>
-                        <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> РґР»РёРЅР°, С€РёСЂРёРЅР°, СЃРёРјРІРѕР» РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ.<br>
-                        <b>Р’С‹С…РѕРґ:</b> СЃС‚СЂРѕРєР° СЃ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµРј С€Р°С…РјР°С‚РЅРѕР№ РґРѕСЃРєРё</p>
+                        Вывести шахматную доску с заданными размерами высоты и ширины.<br>
+                        <b>Входные параметры:</b> длина, ширина, символ для отображения.<br>
+                        <b>Выход:</b> строка с представлением шахматной доски</p>
                 </div>
-                <div id="t1-control-box" class="controlBox">
-                    <div class="controlLine">
+                <div id = "t1-control-box" class = "controlBox">
+                    <div class = "controlLine">
                         <p class = "controlText">Height:</p>
-                        <input id = "t1-height" class = "task1" pattern = "\d{1}"
-                               onclick = "this.value=''"
-                        />
+                        <input id = "t1-height" class = "task1" required
+                               type = "number" min = "1" max = "100" />
                     </div>
-                    <div class="controlLine">
+                    <div class = "controlLine">
                         <p class = "controlText">Width:</p>
-                        <input id = "t1-width" class = "task1" pattern = "\d{1}"
-                               onclick = "this.value=''" />
+                        <input id = "t1-width" class = "task1" required
+                               type = "number" min = "1" max = "100" />
                     </div>
-                    <div class="controlLine">
+                    <div class = "controlLine">
                         <p class = "controlText">Symbol:</p>
-                        <input id = "t1-symbol" class = "task1" pattern = ".{1}"
-                               onclick = "this.value=''" /><br>
+                        <input id = "t1-symbol" class = "task1" required
+                               type = "text" minlength = "1" maxlength = "1" pattern = ".?" /><br>
                     </div>
-                    <div class="controlLine">
-                        <button id="t1-apply" onclick="applyT1data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t1-apply">Apply</button>
                     </div>
                 </div>
             </div>
-            <div style="float: unset"></div>
             <div>
                 <h3>Task 2. Fit envelops (
-                    <button id="t2-control" onclick="showTaskControls(this);">controls</button>
+                    <button id = "t2-control" onclick = "showTaskControls(this);">controls</button>
                     |
                     <button disabled>tests</button>
                     )
                 </h3>
                 <p>
-                    Р•СЃС‚СЊ РґРІР° РєРѕРЅРІРµСЂС‚Р° СЃРѕ СЃС‚РѕСЂРѕРЅР°РјРё (a,b) Рё (c,d).<br>
-                    РўСЂРµР±СѓРµС‚СЃСЏ РѕРїСЂРµРґРµР»РёС‚СЊ, РјРѕР¶РЅРѕ Р»Рё РѕРґРёРЅ РєРѕРЅРІРµСЂС‚ РІР»РѕР¶РёС‚СЊ РІ РґСЂСѓРіРѕР№. <br>
-                    РџСЂРѕРіСЂР°РјРјР° РґРѕР»Р¶РЅР° РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ РІРІРѕРґ С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№.<br>
-                    <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> РѕР±СЉРµРєС‚С‹ РєРѕРЅРІРµСЂС‚1 Рё РєРѕРЅРІРµСЂС‚2.<br>
-                    <b>Р’С‹С…РѕРґ:</b> 1 - РµСЃР»Рё РІР»РѕР¶РµРЅРёРµ РІРѕР·РјРѕР¶РЅРѕ, 0 вЂ“ РµСЃР»Рё РІР»РѕР¶РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ.
+                    Есть два конверта со сторонами (a,b) и (c,d).<br>
+                    Требуется определить, можно ли один конверт вложить в другой. <br>
+                    Программа должна обрабатывать ввод чисел с плавающей точкой.<br>
+                    <b>Входные параметры:</b> объекты конверт1 и конверт2.<br>
+                    <b>Выход:</b> 1 - если вложение возможно, 0 – если вложение невозможно.
                 </p>
-                <div id="t2-control-box" class="controlBox">
-                    <div class="controlLine">
-                        <p class="controlText">Envelop1 side a:</p> <input id="t2-a" onclick="this.value=''"/>
+                <div id = "t2-control-box" class = "controlBox">
+                    <div class = "controlLine">
+                        <p class = "controlText">Envelop1 side a:</p>
+                        <input id = "t2-a" required
+                               type = "number" min = "0" max = "1000000" />
                     </div>
-                    <div style="float: unset"></div>
-                    <div class="controlLine">
-                        <p class="controlText">Envelop1 side b:</p> <input id="t2-b" onclick="this.value=''"/>
+                    <div style = "float: unset"></div>
+                    <div class = "controlLine">
+                        <p class = "controlText">Envelop1 side b:</p>
+                        <input id = "t2-b" required
+                               type = "number" min = "0" max = "1000000" />
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">Envelop2 side c:</p> <input id="t2-c" onclick="this.value=''"><br>
+                    <div class = "controlLine">
+                        <p class = "controlText">Envelop2 side c:</p>
+                        <input id = "t2-c" required
+                               type = "number" min = "0" max = "1000000" /><br>
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">Envelop2 side d:</p> <input id="t2-d" onclick="this.value=''"><br>
+                    <div class = "controlLine">
+                        <p class = "controlText">Envelop2 side d:</p>
+                        <input id = "t2-d" required
+                               type = "number" min = "0" max = "1000000" /><br>
                     </div>
-                    <div class="controlLine">
-                        <button id="t2-apply" onclick="applyT2data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t2-apply">Apply</button>
                     </div>
                 </div>
             </div>
             <div>
                 <div>
                     <h3>Task 3. Compare triangles (
-                        <button id="t3-control" onclick="showTaskControls(this);">controls</button>
+                        <button id = "t3-control" onclick = "showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
                     <p>
-                        Р’С‹РІРµСЃС‚Рё С‚СЂРµСѓРіРѕР»СЊРЅРёРєРё РІ РїРѕСЂСЏРґРєРµ СѓР±С‹РІР°РЅРёСЏ РёС… РїР»РѕС‰Р°РґРё.<br>
-                        <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ TСЂРµСѓРіРѕР»СЊРЅРёРє. <br>
-                        <b>Р’С‹С…РѕРґ:</b> СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Р№ РјР°СЃСЃРёРІ РёРјС‘РЅ С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРІ.
+                        Вывести треугольники в порядке убывания их площади.<br>
+                        <b>Входные параметры:</b> массив объектов Tреугольник. <br>
+                        <b>Выход:</b> упорядоченный массив имён треугольников.
                     </p>
                 </div>
-                <div id="t3-control-box" class="controlBox">
-                    <div class="controlLine">
-                        <p class="controlText">Triangle1:</p>
-                        <input id="t3-tr1-name" onclick="this.value=''">
-                        <input id="t3-tr1-sides" onclick="this.value=''"><br>
+                <div id = "t3-control-box" class = "controlBox">
+                    <div class = "controlLine">
+                        <p class = "controlText">Triangle1:</p>
+                        <input id = "t3-tr1-name" title = "Triangle1 name"
+                               type = "text" minlength = "3" maxlength = "3" required />
+                        <input id = "t3-tr1-sides" title = "Triangle1 sides"
+                               type = "text" pattern = "\d+,\d+,\d+" required /><br>
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">Triangle2:</p>
-                        <input id="t3-tr2-name" onclick="this.value=''">
-                        <input id="t3-tr2-sides" onclick="this.value=''"><br>
+                    <div class = "controlLine">
+                        <p class = "controlText">Triangle2:</p>
+                        <input id = "t3-tr2-name" title = "Triangle2 name"
+                               type = "text" minlength = "3" maxlength = "3" required />
+                        <input id = "t3-tr2-sides" title = "Triangle1 sides"
+                               type = "text" pattern = "\d+,\d+,\d+" required /><br>
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">Triangle3:</p>
-                        <input id="t3-tr3-name" onclick="this.value=''">
-                        <input id="t3-tr3-sides" onclick="this.value=''"><br>
+                    <div class = "controlLine">
+                        <p class = "controlText">Triangle3:</p>
+                        <input id = "t3-tr3-name" title = "Triangle3 name"
+                               type = "text" minlength = "3" maxlength = "3" required />
+                        <input id = "t3-tr3-sides" title = "Triangle1 sides"
+                               type = "text" pattern = "\d+,\d+,\d+" required /><br>
                     </div>
-                    <div class="controlLine">
-                        <button id="t3-apply" onclick="applyT3data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t3-apply" onclick = "applyT3data();">Apply</button>
                     </div>
                 </div>
             </div>
             <div>
                 <div>
                     <h3>Task 4. Palindrome (
-                        <button id="t4-control" onclick="showTaskControls(this);">controls</button>
+                        <button id = "t4-control" onclick = "showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
                     <p>
-                        РџСЂРѕРІРµСЂРёС‚СЊ СЏРІР»СЏРµС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ РёР»Рё РµРіРѕ С‡Р°СЃС‚СЊ РїР°Р»РёРЅРґСЂРѕРјРѕРј. <br>
-                        РќР°РїСЂРёРјРµСЂ, С‡РёСЃР»Рѕ 1234437 РЅРµ СЏРІР»СЏРµС‚СЃСЏ РїР°Р»РёРЅРґСЂРѕРјРѕРј, РЅРѕ СЏРІР»СЏРµС‚СЃСЏ РїР°Р»РёРЅРґСЂРѕРјРѕРј РµРіРѕ С‡Р°СЃС‚СЊ 3443. <br>
-                        Р§РёСЃР»Р° РјРµРЅСЊС€РёРµ, С‡РµРј 10 РїР°Р»РёРЅРґСЂРѕРјРѕРј РЅРµ СЃС‡РёС‚Р°С‚СЊ.<br>
-                        <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> С‡РёСЃР»Рѕ. <br>
-                        <b>Р’С‹С…РѕРґ:</b> РёР·РІР»РµС‡С‘РЅРЅС‹Р№ РёР· С‡РёСЃР»Р° РїР°Р»РёРЅРґСЂРѕРј Р»РёР±Рѕ 0, РµСЃР»Рё РёР·РІР»РµС‡РµРЅРёРµ РЅРµ СѓРґР°Р»РѕСЃСЊ.
+                        Проверить является ли число или его часть палиндромом. <br>
+                        Например, число 1234437 не является палиндромом, но является палиндромом его часть 3443. <br>
+                        Числа меньшие, чем 10 палиндромом не считать.<br>
+                        <b>Входные параметры:</b> число. <br>
+                        <b>Выход:</b> извлечённый из числа палиндром либо 0, если извлечение не удалось.
 
                     </p>
                 </div>
-                <div id="t4-control-box" class="controlBox">
-                    <div class="controlLine">
-                        <p class="controlText">Palindrome: </p>
-                        <input id="t4-palindrome" onclick="this.value=''">
+                <div id = "t4-control-box" class = "controlBox">
+                    <div class = "controlLine">
+                        <p class = "controlText">Palindrome: </p>
+                        <input id = "t4-palindrome" required
+                               type = "number" min = "10" max = "9007199254740991" />
                     </div>
-                    <div class="controlLine">
-                        <button id="t4-apply" onclick="applyT4data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t4-apply" onclick = "applyT4data();">Apply</button>
                     </div>
                 </div>
             </div>
             <div>
                 <div>
                     <h3>Task 5. Tickets (
-                        <button id="t5-control" onclick="showTaskControls(this);">controls</button>
+                        <button id = "t5-control" onclick = "showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
                     <p>
-                        Р•СЃС‚СЊ 2 СЃРїРѕСЃРѕР±Р° РїРѕРґСЃС‡С‘С‚Р° СЃС‡Р°СЃС‚Р»РёРІС‹С… Р±РёР»РµС‚РѕРІ (6 С†РёС„СЂ):</p>
+                        Есть 2 способа подсчёта счастливых билетов (6 цифр):</p>
                     <ul>
-                        <li>1. РџСЂРѕСЃС‚РѕР№ вЂ” РµСЃР»Рё РЅР° Р±РёР»РµС‚Рµ РЅР°РїРµС‡Р°С‚Р°РЅРѕ С€РµСЃС‚РёР·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ, Рё СЃСѓРјРјР° РїРµСЂРІС‹С… С‚СЂС‘С… С†РёС„СЂ СЂР°РІРЅР°
-                            СЃСѓРјРјРµ РїРѕСЃР»РµРґРЅРёС… С‚СЂС‘С…, С‚Рѕ СЌС‚РѕС‚ Р±РёР»РµС‚ СЃС‡РёС‚Р°РµС‚СЃСЏ СЃС‡Р°СЃС‚Р»РёРІС‹Рј.
+                        <li>1. Простой — если на билете напечатано шестизначное число, и сумма первых трёх цифр равна
+                            сумме последних трёх, то этот билет считается счастливым.
                         </li>
                         <li>
-                            2. РЎР»РѕР¶РЅС‹Р№ вЂ” РµСЃР»Рё СЃСѓРјРјР° С‡С‘С‚РЅС‹С… С†РёС„СЂ Р±РёР»РµС‚Р° СЂР°РІРЅР° СЃСѓРјРјРµ РЅРµС‡С‘С‚РЅС‹С… С†РёС„СЂ Р±РёР»РµС‚Р°, С‚Рѕ Р±РёР»РµС‚
-                            СЃС‡РёС‚Р°РµС‚СЃСЏ СЃС‡Р°СЃС‚Р»РёРІС‹Рј.
+                            2. Сложный — если сумма чётных цифр билета равна сумме нечётных цифр билета, то билет
+                            считается счастливым.
                         </li>
                     </ul>
                     <p>
-                        РћРїСЂРµРґРµР»РёС‚СЊ РїСЂРѕРіСЂР°РјРјРЅРѕ РєР°РєРѕР№ РІР°СЂРёР°РЅС‚ РїРѕРґСЃС‡С‘С‚Р° СЃС‡Р°СЃС‚Р»РёРІС‹С… Р±РёР»РµС‚РѕРІ РґР°СЃС‚ РёС… Р±РѕР»СЊС€РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°
-                        Р·Р°РґР°РЅРЅРѕРј РёРЅС‚РµСЂРІР°Р»Рµ.<br>
-                        <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> РѕР±СЉРµРєС‚ context СЃ РїРѕР»СЏРјРё min Рё max.<br>
-                        <b>Р’С‹С…РѕРґ:</b> РѕР±СЉРµРєС‚ СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ РїРѕР±РµРґРёРІС€РµРј РјРµС‚РѕРґРµ Рё РєРѕР»РёС‡РµСЃС‚РІРµ СЃС‡Р°СЃС‚Р»РёРІС‹С… Р±РёР»РµС‚РѕРІ РґР»СЏ
-                        РєР°Р¶РґРѕРіРѕ
-                        СЃРїРѕСЃРѕР±Р° РїРѕРґСЃС‡С‘С‚Р°.
+                        Определить программно какой вариант подсчёта счастливых билетов даст их большее количество на
+                        заданном интервале.<br>
+                        <b>Входные параметры:</b> объект context с полями min и max.<br>
+                        <b>Выход:</b> объект с информацией о победившем методе и количестве счастливых билетов для
+                        каждого
+                        способа подсчёта.
                     </p>
                 </div>
-                <div id="t5-control-box" class="controlBox">
-                    <div class="controlLine">
-                        <p class="controlText">Min ticket num: </p>
-                        <input id="t5-min" onclick="this.value=''">
+                <div id = "t5-control-box" class = "controlBox">
+                    <div class = "controlLine">
+                        <p class = "controlText">Min ticket num: </p>
+                        <input id = "t5-min"
+                               type = "number" min = "0" max = "999999" required />
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">Max ticket num: </p>
-                        <input id="t5-max" onclick="this.value=''">
+                    <div class = "controlLine">
+                        <p class = "controlText">Max ticket num: </p>
+                        <input id = "t5-max"
+                               type = "number" min = "0" max = "999999" required />
                     </div>
-                    <div class="controlLine">
-                        <button id="t5-apply" onclick="applyT5data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t5-apply" onclick = "applyT5data();">Apply</button>
                     </div>
                 </div>
             </div>
             <div>
                 <div>
                     <h3>Task 6. Generate sequence (
-                        <button id="t6-control" onclick="showTaskControls(this);">controls</button>
+                        <button id = "t6-control" onclick = "showTaskControls(this);">controls</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
                     <p>
-                        Р’С‹РІРµСЃС‚Рё С‡РµСЂРµР· Р·Р°РїСЏС‚СѓСЋ СЂСЏРґ РґР»РёРЅРѕР№ n, СЃРѕСЃС‚РѕСЏС‰РёР№ РёР· РЅР°С‚СѓСЂР°Р»СЊРЅС‹С… С‡РёСЃРµР», <br>
-                        РєРІР°РґСЂР°С‚ РєРѕС‚РѕСЂС‹С… РЅРµ РјРµРЅСЊС€Рµ Р·Р°РґР°РЅРЅРѕРіРѕ m.
-                        <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> РґР»РёРЅР° Рё Р·РЅР°С‡РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РєРІР°РґСЂР°С‚Р°.<br>
-                        <b>Р’С‹С…РѕРґ:</b> СЃС‚СЂРѕРєР° СЃ СЂСЏРґРѕРј С‡РёСЃРµР»
+                        Вывести через запятую ряд длиной n, состоящий из натуральных чисел, <br>
+                        квадрат которых не меньше заданного m.
+                        <b>Входные параметры:</b> длина и значение минимального квадрата.<br>
+                        <b>Выход:</b> строка с рядом чисел
 
                     </p>
                 </div>
-                <div id="t6-control-box" class="controlBox">
-                    <div class="controlLine">
-                        <p class="controlText">N: </p>
-                        <input id="t6-n" onclick="this.value=''">
+                <div id = "t6-control-box" class = "controlBox">
+                    <div class = "controlLine">
+                        <p class = "controlText">N: </p>
+                        <input id = "t6-n"
+                               type = "number" min = "1" max = "100" required />
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">M: </p>
-                        <input id="t6-m" onclick="this.value=''">
+                    <div class = "controlLine">
+                        <p class = "controlText">M: </p>
+                        <input id = "t6-m"
+                               type = "number" min = "0" required />
                     </div>
-                    <div class="controlLine">
-                        <button id="t6-apply" onclick="applyT6data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t6-apply" onclick = "applyT6data();">Apply</button>
                     </div>
                 </div>
             </div>
             <div>
                 <div>
                     <h3>Task 7. Find fibonacci (
-                        <button id="t7-control" onclick="showTaskControls(this);">control</button>
+                        <button id = "t7-control" onclick = "showTaskControls(this);">control</button>
                         |
                         <button disabled>tests</button>
                         )
                     </h3>
                     <p>
-                        Р’С‹РІРµСЃС‚Рё РІСЃРµ С‡РёСЃР»Р° Р¤РёР±РѕРЅР°С‡С‡Рё, РєРѕС‚РѕСЂС‹Рµ РЅР°С…РѕРґСЏС‚СЃСЏ РІ СѓРєР°Р·Р°РЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ, Р»РёР±Рѕ РёРјРµСЋС‚ СѓРєР°Р·Р°РЅРЅСѓСЋ
-                        РґР»РёРЅСѓ.<br>
-                        <b>Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹:</b> РѕР±СЉРµРєС‚ context СЃ РїРѕР»СЏРјРё min Рё max, Р»РёР±Рѕ СЃ РїРѕР»РµРј length
-                        <b>Р’С‹С…РѕРґ:</b> РјР°СЃСЃРёРІ С‡РёСЃРµР»
+                        Вывести все числа Фибоначчи, которые находятся в указанном диапазоне, либо имеют указанную
+                        длину.<br>
+                        <b>Входные параметры:</b> объект context с полями min и max, либо с полем length
+                        <b>Выход:</b> массив чисел
 
                     </p>
                 </div>
-                <div id="t7-control-box" class="controlBox">
-                    <div class="controlLine">
-                        <p class="controlText">MIN: </p>
-                        <input id="t7-min" onclick="this.value=''">
+                <div id = "t7-control-box" class = "controlBox">
+                    <div class = "controlLine">
+                        <p class = "controlText">MIN: </p>
+                        <input id = "t7-min"
+                               type = "number" />
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">MAX: </p>
-                        <input id="t7-max" onclick="this.value=''">
+                    <div class = "controlLine">
+                        <p class = "controlText">MAX: </p>
+                        <input id = "t7-max"
+                               type = "number" />
                     </div>
-                    <div class="controlLine">
-                        <p class="controlText">Length: </p>
-                        <input id="t7-length" onclick="this.value=''">
+                    <div class = "controlLine">
+                        <p class = "controlText">Length: </p>
+                        <input id = "t7-length"
+                               type = "number" />
                     </div>
-                    <div class="controlLine">
-                        <button id="t7-apply" onclick="applyT7data();">Apply</button>
+                    <div class = "controlLine">
+                        <button id = "t7-apply" onclick = "applyT7data();">Apply</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="output-box">
+        <div class = "output-box">
             <p><b>Output:</b></p>
-            <textarea id="output-box" class="output"></textarea><br>
-            <button id="clearOutput" onclick="clearOutput()">Clear</button>
+            <textarea id = "output-box" class = "output"></textarea><br>
+            <button id = "clearOutput" onclick = "clearOutput()">Clear</button>
         </div>
+
+
     </body>
 </html>

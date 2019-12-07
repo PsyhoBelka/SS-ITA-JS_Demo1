@@ -1,6 +1,7 @@
-import {help} from "./Validator.js";
+import {help, Validator} from "./Validator.js";
 
 export function fibo(a) {
+    const validator = new Validator();
     let fields = Object.keys(a);
     let i;
     if (fields.includes('min') && fields.includes('max') && fields.includes('length')) {
@@ -9,6 +10,12 @@ export function fibo(a) {
     if (fields.includes('min') && fields.includes('max')) {
         let min = a.min;
         let max = a.max;
+        if (!validator.isNumAndPositive(min) || !validator.isNumAndPositive(max)) {
+            return help('min and max should be a positive number!');
+        }
+        if (!validator.isValidFibonacciRange(min, max)) {
+            return help('min should be less then max!');
+        }
         let fibArr = [];
         i = 0;
         while (bine(i) < min) {
@@ -22,6 +29,9 @@ export function fibo(a) {
     }
     if (fields.includes('length')) {
         let length = a.length;
+        if (!validator.isNumAndPositive(length)) {
+            return help('length should be a positive number!')
+        }
         let fibArr = [];
         i = 0;
         while (bine(i).toString().length < length) {

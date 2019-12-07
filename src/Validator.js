@@ -31,6 +31,10 @@ export class Validator {
     isValidTicketMaxNumber(num) {
         return num > 0 && num < 1000000;
     }
+
+    isValidFibonacciRange(start, end) {
+        return this.isNumAndPositive(start) && this.isNumAndPositive(end) && start < end;
+    }
 }
 
 export function help(reason) {
