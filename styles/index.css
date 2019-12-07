@@ -81,6 +81,6 @@ p {
     border: 2px dashed red;
 }
 
-:valid {
-    border: 2px solid greenyellow;
-}
+/*:valid {*/
+/*border: 2px solid greenyellow;*/
+/*}*/

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML >
 <html lang="en">
     <head>
+        <!--<meta charset="windows-1251">-->
         <title>Title</title>
         <script src="./main.js" type="module"></script>
         <link rel="stylesheet" href="./styles/index.css">
@@ -25,13 +26,20 @@
                 </div>
                 <div id="t1-control-box" class="controlBox">
                     <div class="controlLine">
-                        <p class="controlText">Height:</p> <input id="t1-height" onclick="this.value=''" pattern=""/>
+                        <p class = "controlText">Height:</p>
+                        <input id = "t1-height" class = "task1" pattern = "\d{1}"
+                               onclick = "this.value=''"
+                        />
                     </div>
                     <div class="controlLine">
-                        <p class="controlText">Width:</p> <input id="t1-width" onclick="this.value=''"/>
+                        <p class = "controlText">Width:</p>
+                        <input id = "t1-width" class = "task1" pattern = "\d{1}"
+                               onclick = "this.value=''" />
                     </div>
                     <div class="controlLine">
-                        <p class="controlText">Symbol:</p> <input id="t1-symbol" onclick="this.value=''"><br>
+                        <p class = "controlText">Symbol:</p>
+                        <input id = "t1-symbol" class = "task1" pattern = ".{1}"
+                               onclick = "this.value=''" /><br>
                     </div>
                     <div class="controlLine">
                         <button id="t1-apply" onclick="applyT1data();">Apply</button>
