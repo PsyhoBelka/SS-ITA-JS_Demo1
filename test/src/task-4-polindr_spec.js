@@ -14,5 +14,8 @@ export function task4Tests() {
         it('should return founded polindromes', function () {
             assert.deepEqual(palindrome(12332133),["33", "2332", "123321"])
         });
+        it('should return empty array if nothing founded', function () {
+            assert.deepEqual(palindrome(587), [])
+        });
     });
 }

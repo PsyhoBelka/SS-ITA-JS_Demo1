@@ -18,10 +18,6 @@ export class Validator {
         return (a + b > c) || (c + b > a) || (a + c > b);
     };
 
-    isInteger(num) {
-        return Number.isInteger(num);
-    }
-
     isSingleCharacter(sym) {
         return this.isString(sym) && sym.length === 1;
     }
@@ -34,6 +30,10 @@ export class Validator {
 
     isValidTicketMaxNumber(num) {
         return num > 0 && num < 1000000;
+    }
+
+    isValidFibonacciRange(start, end) {
+        return this.isNumAndPositive(start) && this.isNumAndPositive(end) && start < end;
     }
 }
 

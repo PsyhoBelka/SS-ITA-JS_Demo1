@@ -77,10 +77,45 @@ p {
     margin: 20px;
 }
 
-:invalid {
-    border: 2px dashed red;
+/*:invalid {*/
+/*border: 2px dashed red;*/
+/*}*/
+
+/*:valid {*/
+/*border: 2px solid greenyellow;*/
+/*}*/
+
+/*validators styles*/
+
+label {
+    margin-top: 2px;
+    margin-bottom: 4px;
 }
 
-:valid {
-    border: 2px solid greenyellow;
+:required {
+    border: red solid 1px;
+}
+
+.input-error {
+    border: 0.5px solid red;
+}
+
+.input-error-hint {
+    display: inline-block;
+    color: red;
+    position: relative;
+    left: 30px;
+}
+
+input:invalid:focus {
+    outline: none;
+}
+
+input:invalid {
+    border-color: #900;
+    background-color: #FDD;
+}
+
+.input-line {
+    height: 25px;
 }

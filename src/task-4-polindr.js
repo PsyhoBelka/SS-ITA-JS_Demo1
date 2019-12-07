@@ -31,7 +31,7 @@ function calcPalindrome(input) {
         }
         palindromsArr.push(match)
     }
-    return palindromsArr.length > 0 ? palindromsArr.flat() : 0;
+    return palindromsArr.length > 0 ? palindromsArr.flat() : [];
 }
 
 function getRegexP1(size, regexTemplate) {

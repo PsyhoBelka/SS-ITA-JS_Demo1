@@ -1,10 +1,10 @@
-import {chessBoard} from "./src/task-1-chess.js";
-import {envelop} from "./src/task-2-envelop.js";
-import {triangles} from "./src/task-3-triang.js";
-import {palindrome} from "./src/task-4-polindr.js";
-import {tickets} from "./src/task-5-tickets.js";
-import {sequence} from "./src/task-6-sequence.js";
-import {fibo} from "./src/task-7-fibo.js";
+import {chessBoard} from "./task-1-chess.js";
+import {envelop} from "./task-2-envelop.js";
+import {triangles} from "./task-3-triang.js";
+import {palindrome} from "./task-4-polindr.js";
+import {tickets} from "./task-5-tickets.js";
+import {sequence} from "./task-6-sequence.js";
+import {fibo} from "./task-7-fibo.js";
 
 
 window.chessBoard = chessBoard;
@@ -59,6 +59,7 @@ function applyT1data() {
     const height = document.getElementById('t1-height').value;
     const symbol = document.getElementById('t1-symbol').value;
     console.log(width, height, symbol);
+    outputBox.value = '';
     outputBox.value = chessBoard(Number(width), Number(height), symbol);
 }
 
@@ -68,7 +69,7 @@ function applyT2data() {
     const c = document.getElementById('t2-c').value;
     const d = document.getElementById('t2-d').value;
     console.log(a, b, c, d);
-    outputBox.value = JSON.stringify(envelop(Number(a), Number(b), Number(c), Number(d)));
+    printResult(envelop(Number(a), Number(b), Number(c), Number(d)));
 }
 
 function applyT3data() {
@@ -114,9 +115,15 @@ function applyT7data() {
     if (min.length !== 0 && max.length !== 0) {
         data.min = Number(min);
         data.max = Number(max);
-    } else if (length.length !== 0) {
+    }
+    if (length.length !== 0) {
         data.length = Number(length);
     }
     console.log(data);
     outputBox.value = JSON.stringify(fibo(data));
 }
+
+const printResult = (result) => {
+    outputBox.value = '';
+    outputBox.value = JSON.stringify(result);
+};
