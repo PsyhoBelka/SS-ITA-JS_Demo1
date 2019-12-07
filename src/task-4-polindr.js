@@ -1,19 +1,21 @@
 import {help, Validator} from "../src/Validator.js";
 
-export function calcPoli(input) {
-    const validator= new Validator();
-    if (!validator.isNumber(input)) {
-        return help('Input must be a number')
+export function palindrome(input) {
+    const validator = new Validator();
+    if (!validator.isNumAndPositive(input)) {
+        return help('Input must be a number and positive!')
     }
 
-    let poli=polindrom(input).flat();
-    let poliRev=polindrom(Array.from(input.toString()).reverse().join('')).flat();
-    let res=[];
-    [...poli,...poliRev].forEach((x,i,arr)=>{!res.includes(x)?res.push(x):0})
+    const reverseInput = Array.from(input.toString()).reverse().join('');
+
+    let res = [];
+    [...calcPalindrome(input).flat(), ...calcPalindrome(reverseInput).flat()].forEach((x) => {
+        !res.includes(x) ? res.push(x) : 0
+    });
     return res;
 }
 
-function polindrom(input) {
+function calcPalindrome(input) {
     input = input.toString();
     let regP1 = '(\\w)';
     let i = 1;
@@ -32,16 +34,12 @@ function polindrom(input) {
     return palindromsArr.length > 0 ? palindromsArr.flat() : 0;
 }
 
-function getRegexP1(i, regP1) {
-    return Array(i).fill(regP1);
+function getRegexP1(size, regexTemplate) {
+    return Array(size).fill(regexTemplate);
 }
 
-function getRegexP2(k) {
-    return Array(k - 1).fill(0).map((a, b) => {
-        return `\\${b + 1}`
+function getRegexP2(count) {
+    return Array(count - 1).fill(0).map((x, i) => {
+        return `\\${i + 1}`
     }).reverse();
 }
-
-// let a = '13493234567765431';
-//(\w)(\w)\1
-//(\w)(?:(?R)|\w?)\1

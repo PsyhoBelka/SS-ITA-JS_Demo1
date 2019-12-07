@@ -17,26 +17,19 @@
     </head>
     <body>
         <h3>DEMO-3_Tests suit</h3>
-        <div>
-            <ol>
-                <li>
-                    <div>ChessBoard: <a href="1-chessboard.html">>>>Tests<<<</a></div>
-                    <div class="t1-condition">here will be inputed data</div>
-                    <div class="t1-output">here wil be function's output</div>
-                    <form onsubmit="return a1();">
-                        <button type="submit">submit</button>
-                    </form>
-                </li>
-                <li>Envelops: <a href="2-envelop.html">>>>Tests<<<</a></li>
-                <li>Triangles: <a href="1-chessboard.html">>>>Tests<<<</a></li>
-                <li>Palindrom: <a href="1-chessboard.html">>>>Tests<<<</a></li>
-                <li>Tickets: <a href="1-chessboard.html">>>>Tests<<<</a></li>
-                <li>Number sequence: <a href="1-chessboard.html">>>>Tests<<<</a></li>
-                <li>Fibonachi sequence: <a href="1-chessboard.html">>>>Tests<<<</a></li>
-            </ol>
-        </div>
-        <div>
+        <!--<script src="../src/task-1-chess.js" type="module">-->
 
-        </div>
+        <!--</script>-->
+        <script type="module">
+            import {envelop} from "../src/task-2-envelop.js";
+            import {triangles} from "../src/task-3-triang.js";
+            import {palindrome} from "../src/task-4-polindr.js";
+            import {tickets} from "../src/task-5-tickets.js";
+            import {sequence} from "../src/task-6-sequence.js";
+            import {fibo} from "../src/task-7-fibo.js";
+
+
+            window.tf=fibo;
+        </script>
     </body>
 </html>

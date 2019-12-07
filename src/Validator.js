@@ -7,15 +7,15 @@ export class Validator {
         return typeof str === 'string';
     };
 
-    isNumInPositiveRange(num) {
-        return num > 0;
+    isNumAndPositive(num) {
+        return this.isNumber(num) && num >= 0;
     };
 
     isValidTriangle({a, b, c}) {
-        if (!this.isNumber(a) || !this.isNumber(b) || !this.isNumber(c)) {
+        if (a === 0 || b === 0 || c === 0 || !this.isNumber(a) || !this.isNumber(b) || !this.isNumber(c)) {
             return false;
         }
-        return (a + b > c) | (c + b > a) | (a + c > b);
+        return (a + b > c) || (c + b > a) || (a + c > b);
     };
 
     isInteger(num) {
@@ -24,6 +24,16 @@ export class Validator {
 
     isSingleCharacter(sym) {
         return this.isString(sym) && sym.length === 1;
+    }
+
+    isValidEnvelop(a, b) {
+        if (this.isNumAndPositive(a) && this.isNumAndPositive(b)) {
+            return Math.abs(a - b) >= 0;
+        }
+    }
+
+    isValidTicketMaxNumber(num) {
+        return num > 0 && num < 1000000;
     }
 }
 

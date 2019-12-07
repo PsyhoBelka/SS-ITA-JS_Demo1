@@ -1,7 +1,7 @@
 import {chessBoard} from "./src/task-1-chess.js";
 import {envelop} from "./src/task-2-envelop.js";
 import {triangles} from "./src/task-3-triang.js";
-import {calcPoli} from "./src/task-4-polindr.js";
+import {palindrome} from "./src/task-4-polindr.js";
 import {tickets} from "./src/task-5-tickets.js";
 import {sequence} from "./src/task-6-sequence.js";
 import {fibo} from "./src/task-7-fibo.js";
@@ -10,7 +10,7 @@ import {fibo} from "./src/task-7-fibo.js";
 window.chessBoard = chessBoard;
 window.envelop = envelop;
 window.printTriang = triangles;
-window.calcPoli = calcPoli;
+window.calcPoli = palindrome;
 window.tickets = tickets;
 window.posled = sequence;
 window.fibo = fibo;
@@ -88,7 +88,7 @@ function applyT3data() {
 function applyT4data() {
     const pal = document.getElementById('t4-palindrome').value;
     console.log(pal);
-    outputBox.value = JSON.stringify(calcPoli(Number(pal)));
+    outputBox.value = JSON.stringify(palindrome(Number(pal)));
 }
 
 function applyT5data() {

@@ -2,12 +2,12 @@ import {help, Validator} from "./Validator.js";
 
 export function triangles(triagArr) {
     const validator = new Validator();
-    if (triagArr.length === 0) {
-        return -1;
+    if (arguments.length === 0 || triagArr.length===0) {
+        return help('no data!');
     }
     for (let i = 0; i < triagArr.length; i++) {
         if (!validator.isValidTriangle(triagArr[i])) {
-            return help(`Triangle ${triagArr[i].name} is invalid. Stoped!`)
+            return help(`Triangle ${triagArr[i].name} is invalid!`)
         }
     }
     return triagArr

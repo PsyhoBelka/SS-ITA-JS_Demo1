@@ -4,6 +4,9 @@ export function fibo(a) {
     let fields = Object.keys(a);
     let i;
     console.log(fields);
+    if (fields.includes('min') && fields.includes('max') && fields.includes('length')) {
+        return help('bad input!');
+    }
     if (fields.includes('min') && fields.includes('max')) {
         let min = a.min;
         let max = a.max;
@@ -32,7 +35,7 @@ export function fibo(a) {
         return fibArr;
     }
 
-    return help('bad input');
+    return help('bad input!');
 }
 
 function bine(n) {
@@ -42,7 +45,3 @@ function bine(n) {
 
     return Math.round((Math.pow(left, n) - Math.pow(right, n)) / index);
 }
-
-// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765
-// console.log(fibo({min: 13, max: 200}));
-// console.log(fibo({length: 5}));

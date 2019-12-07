@@ -3,11 +3,14 @@ import {help, Validator} from "./Validator.js";
 
 export function tickets({min, max}) {
     const validator = new Validator();
-    if (!validator.isInteger(min) || !validator.isInteger(max) || validator.isString(min) || validator.isString(max)) {
-        return help('Tickets must be integer!')
+    if (!validator.isNumAndPositive(min) || !validator.isNumAndPositive(max) || validator.isString(min) || validator.isString(max)) {
+        return help('Tickets must be positive integer!')
     }
-    if (min >= max || min < 0 && max < 0) {
+    if (min >= max) {
         return help('Invalid ticket range!');
+    }
+    if (!validator.isValidTicketMaxNumber(max)) {
+        return help('Invalid max, should be less then 1 000 000');
     }
 
     let result = {simpleCheck: 0, hardCheck: 0, winner: 'draw'};
@@ -21,7 +24,8 @@ export function tickets({min, max}) {
         }
     }
 
-    result.simpleCheck > result.hardCheck ? result.winner = 'simple win!' : result.winner = 'hard win!';
+    result.simpleCheck > result.hardCheck ? result.winner = 'simple win!' : 0;
+    result.simpleCheck < result.hardCheck ? result.winner = 'hard win!' : 0;
 
     return result;
 }
@@ -29,7 +33,7 @@ export function tickets({min, max}) {
 function makeFullNumber(number) {
     let arr = [...number.toString()];
     if (arr.length < 6) {
-        [Array(6 - [...number.toString()].length).fill('0'), [...number.toString()]].flat()
+        return [Array(6 - [...number.toString()].length).fill('0'), [...number.toString()]].flat()
     }
 
     return arr;
@@ -37,15 +41,10 @@ function makeFullNumber(number) {
 
 function checkSimple(number) {
     let arr = makeFullNumber(number);
-    return arr[0] + arr[1] + arr[2] === arr[3] + arr[4] + arr[5];
+    return +arr[0] + +arr[1] + +arr[2] === +arr[3] + +arr[4] + +arr[5];
 }
 
 function checkHard(number) {
     let arr = makeFullNumber(number);
-    let odd = 0;
-    let even = 0;
-    arr.forEach((x) => {
-        Number(x) % 2 === 0 ? odd += +x : even += +x;
-    });
-    return odd === even;
+    return +arr[1] + +arr[3] + +arr[5] === +arr[0] + +arr[2] + +arr[4];
 }
