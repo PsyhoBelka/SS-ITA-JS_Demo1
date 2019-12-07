@@ -77,16 +77,6 @@ p {
     margin: 20px;
 }
 
-/*:invalid {*/
-/*border: 2px dashed red;*/
-/*}*/
-
-/*:valid {*/
-/*border: 2px solid greenyellow;*/
-/*}*/
-
-/*validators styles*/
-
 label {
     margin-top: 2px;
     margin-bottom: 4px;
