@@ -1,4 +1,4 @@
-import {Validator, help} from "./Validator.js";
+import {help, Validator} from "./Validator.js";
 
 export function envelop(a, b, c, d) {
     const validator = new Validator();
@@ -39,7 +39,6 @@ function fits(a, b, c, d) {
     for (let i = 0; i <= 90; i++) {
         let tmpA = c * cos(i) + d * cos(90 - i);
         let tmpB = c * cos(90 - i) + d * cos(i);
-        console.log(`${tmpA}, ${tmpB}, ${i}`);
         if (tmpA < a && tmpB < b) {
             return 1;
         }

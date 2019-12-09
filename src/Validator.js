@@ -12,7 +12,7 @@ export class Validator {
     };
 
     isValidTriangle(triangle) {
-        const [a, b, c] = [triangle[triangle.name[0]], triangle[triangle.name[1]], triangle[triangle.name[2]]];
+        const [sideA, sideB, sideC] = [triangle[triangle.name[0]], triangle[triangle.name[1]], triangle[triangle.name[2]]];
         if (
             [triangle.name[1], triangle.name[2]].includes(triangle.name[0]) ||
             [triangle.name[0], triangle.name[2]].includes(triangle.name[1]) ||
@@ -20,10 +20,10 @@ export class Validator {
         ) {
             return false;
         }
-        if (a === 0 || b === 0 || c === 0 || !this.isNumber(a) || !this.isNumber(b) || !this.isNumber(c)) {
+        if (sideA === 0 || sideB === 0 || sideC === 0 || !this.isNumber(sideA) || !this.isNumber(sideB) || !this.isNumber(sideC)) {
             return false;
         }
-        return (a + b > c) || (c + b > a) || (a + c > b);
+        return (sideA + sideB > sideC) || (sideC + sideB > sideA) || (sideA + sideC > sideB);
     };
 
     isSingleCharacter(sym) {
