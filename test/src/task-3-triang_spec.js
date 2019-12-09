@@ -12,18 +12,26 @@ export function task3Tests() {
             assert.deepEqual(triangles([]), help('no data!'))
         });
         it('should return error msg if invalid triangle', function () {
-            assert.deepEqual(triangles([{name:'qq',a:0,b:3,c:4}]),help('Triangle qq is invalid!'))
+            assert.deepEqual(triangles([{name: 'wsd', a: 0, b: 3, c: 4}]), help('Triangle WSD is invalid!'))
         });
         it('should return 2 triangles ordered by square in desc order', function () {
             assert.deepEqual(triangles(
                 [
-                    {name: 'qq', a: 2.2, b: 2.4, c: 3},
-                    {name: 'ww', a: 6.4, b: 5, c: 6}
+                    {name: 'qws', q: 2.2, w: 2.4, s: 3},
+                    {name: 'wed', w: 6.4, e: 5, d: 6}
                 ]),
                 [
-                    {"a": 6.4, "b": 5, "c": 6, "name": 'ww', "square": 14.14},
-                    {"a": 2.2, "b": 2.4, "c": 3, "name": "qq", "square": 2.61}
+                    {name: "WED", w: 6.4, e: 5, d: 6, square: 14.14},
+                    {name: "QWS", q: 2.2, w: 2.4, s: 3, square: 2.61}
                 ])
+        });
+        it('should return error msg if duplicate side name', function () {
+            assert.deepEqual(triangles(
+                [
+                    {name: 'qww', a: 2.2, b: 2.4, c: 3},
+                    {name: 'wed', a: 6.4, b: 5, c: 6}
+                ]
+            ), help(`Triangle QWW is invalid!`))
         });
     });
 }
