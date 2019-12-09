@@ -11,7 +11,15 @@ export class Validator {
         return this.isNumber(num) && num >= 0;
     };
 
-    isValidTriangle({a, b, c}) {
+    isValidTriangle(triangle) {
+        const [a, b, c] = [triangle[triangle.name[0]], triangle[triangle.name[1]], triangle[triangle.name[2]]];
+        if (
+            [triangle.name[1], triangle.name[2]].includes(triangle.name[0]) ||
+            [triangle.name[0], triangle.name[2]].includes(triangle.name[1]) ||
+            [triangle.name[0], triangle.name[1]].includes(triangle.name[2])
+        ) {
+            return false;
+        }
         if (a === 0 || b === 0 || c === 0 || !this.isNumber(a) || !this.isNumber(b) || !this.isNumber(c)) {
             return false;
         }
