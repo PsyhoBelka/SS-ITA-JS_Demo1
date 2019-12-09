@@ -17,7 +17,6 @@ window.fibo = fibo;
 
 //---Init controls---
 window.showTaskControls = showTaskControls;
-// window.clearOutput = clearOutput;
 
 window.applyT1data = applyT1data;
 window.applyT2data = applyT2data;
@@ -35,7 +34,6 @@ const hiddenClass = 'unhidden';
 function showTaskControls(ctr) {
     const ctrId = `${ctr.id}-box`;
     console.log(`show ${ctrId}`);
-    // let status = document.getElementById(ctrId).hidden;
     let status = document.getElementById(ctrId).classList.contains(hiddenClass);
     switch (status) {
         case false: {
@@ -47,7 +45,6 @@ function showTaskControls(ctr) {
             break;
         }
     }
-    // ctr.innerText.includes('hide') ? ctr.innerText = 'show controls' : 0;
     ctr.innerText.includes('show') ? ctr.innerText = 'hide controls' : ctr.innerText = 'show controls';
 }
 
@@ -64,7 +61,7 @@ function applyT1data() {
     const height = document.getElementById('t1-height').value;
     const symbol = document.getElementById('t1-symbol').value;
     console.log(width, height, symbol);
-    outputBox.value = '';
+    clearOutput;
     outputBox.value = chessBoard(Number(width), Number(height), symbol);
 }
 
@@ -83,9 +80,9 @@ function applyT3data() {
     let a, b, c;
     let name;
     for (let i = 1; i <= trNum; i++) {
-        name = document.getElementById(`t3-tr${i}-name`).value;
+        name = document.getElementById(`t3-tr${i}-name`).value.toUpperCase();
         [a, b, c] = document.getElementById(`t3-tr${i}-sides`).value.split(',');
-        data.push({name: name, a: Number(a), b: Number(b), c: Number(c)});
+        data.push({name, [name[0]]: Number(a), [name[1]]: Number(b), [name[2]]: Number(c)});
     }
     console.log(data);
     outputBox.value = JSON.stringify(triangles(data));
