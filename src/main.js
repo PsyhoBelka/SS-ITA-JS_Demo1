@@ -17,6 +17,7 @@ window.fibo = fibo;
 
 //---Init controls---
 window.showTaskControls = showTaskControls;
+window.clearOutput = clearOutput;
 
 window.applyT1data = applyT1data;
 window.applyT2data = applyT2data;
@@ -48,9 +49,10 @@ function showTaskControls(ctr) {
     ctr.innerText.includes('show') ? ctr.innerText = 'hide controls' : ctr.innerText = 'show controls';
 }
 
-const clearOutput = () => {
+function clearOutput() {
     outputBox.value = '';
-};
+}
+
 const printResult = (result) => {
     clearOutput;
     outputBox.value = JSON.stringify(result);
@@ -85,34 +87,34 @@ function applyT3data() {
         data.push({name, [name[0]]: Number(a), [name[1]]: Number(b), [name[2]]: Number(c)});
     }
     console.log(data);
-    outputBox.value = JSON.stringify(triangles(data));
+    // outputBox.value = JSON.stringify(triangles(data));
+    printResult(triangles(data));
 }
 
 function applyT4data() {
     const pal = document.getElementById('t4-palindrome').value;
     console.log(pal);
-    outputBox.value = JSON.stringify(palindrome(Number(pal)));
+    printResult(palindrome(Number(pal)));
 }
 
 function applyT5data() {
     const min = document.getElementById('t5-min').value;
     const max = document.getElementById('t5-max').value;
     console.log([min, max]);
-    outputBox.value = JSON.stringify(tickets({min: Number(min), max: Number(max)}));
+    printResult(tickets({min: Number(min), max: Number(max)}));
 }
 
 function applyT6data() {
     const n = document.getElementById('t6-n').value;
     const m = document.getElementById('t6-m').value;
     console.log([n, m]);
-    outputBox.value = JSON.stringify(sequence(Number(m), Number(n)));
+    printResult(sequence(Number(m), Number(n)));
 }
 
 function applyT7data() {
     const min = document.getElementById('t7-min').value;
     const max = document.getElementById('t7-max').value;
     const length = document.getElementById('t7-length').value;
-    console.log([min, max, length]);
     let data = {};
     if (min.length !== 0 && max.length !== 0) {
         data.min = Number(min);
@@ -122,5 +124,5 @@ function applyT7data() {
         data.length = Number(length);
     }
     console.log(data);
-    outputBox.value = JSON.stringify(fibo(data));
+    printResult(fibo(data));
 }
