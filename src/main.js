@@ -87,7 +87,6 @@ function applyT3data() {
         data.push({name, [name[0]]: Number(a), [name[1]]: Number(b), [name[2]]: Number(c)});
     }
     console.log(data);
-    // outputBox.value = JSON.stringify(triangles(data));
     printResult(triangles(data));
 }
 
